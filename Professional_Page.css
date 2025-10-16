@@ -1,0 +1,325 @@
+:root{
+  --bg: #141414; /* plain black page */
+  --fg: #f5f7fb;
+  --muted: #d5d9e2;
+  --border: rgba(255,255,255,.12);
+  --shadow: 0 10px 30px rgba(0,0,0,.45);
+
+  --panel: #15171d;
+  --panelBorder: #ff2c2c; /* red accent for dotted border */
+}
+*{ box-sizing: border-box }
+html, body { height: 100% }
+body{
+  margin:0;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* NAV (same behavior/look as other page) */
+.nav{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+  z-index: 30;
+}
+.nav::before{
+  content:"";
+  position:absolute; inset:0;
+  backdrop-filter: blur(6px);
+  background:linear-gradient(to bottom, rgba(10,10,14,.75), rgba(10,10,14,.35) 70%, transparent);
+  border-bottom: 1px solid var(--border);
+  z-index: -1;
+}
+.logo{ height:142px; width:auto; display:block; }
+.nav-links{ display:flex; align-items:center; gap:20px; margin-left:30px; }
+.nav a{ color:var(--muted); text-decoration:none; font-weight:600; }
+.nav a:hover{ color:var(--fg); }
+.spacer{ flex:1 }
+
+/* profile switcher (hover) */
+.avatar{ width:36px; height:36px; overflow:hidden; border:1px solid var(--border); border-radius:4px;}
+.avatar img{ width:100%; height:100%; object-fit:cover }
+.profile-switch{ position:relative; }
+.profile-trigger{ display:flex; align-items:center; gap:10px; cursor:pointer; }
+.caret{ width:0; height:0; border-left:6px solid transparent; border-right:6px solid transparent; border-top:8px solid #fff; transition:transform .2s ease; }
+.profile-switch .menu{
+  display:none; position:absolute; right:0; top:100%; margin-top:8px;
+  background:#111215; border:1px solid var(--border); border-radius:10px;
+  box-shadow:var(--shadow); padding:8px; list-style:none; min-width:190px; z-index:40;
+}
+.profile-switch:hover .menu{ display:block; }
+.profile-switch:hover .caret{ transform:rotate(180deg); }
+.profile-switch::after{ content:""; position:absolute; right:0; top:100%; width:220px; height:12px; background:transparent; }
+.menu .menu-item{ display:flex; align-items:center; gap:10px; padding:10px 12px; color:var(--fg); text-decoration:none; border-radius:8px;}
+.menu .menu-item:hover{ background:#1f222c; }
+.avatar.small{ width:28px; height:28px; border-radius:4px; }
+.avatar-blue img{ filter: hue-rotate(200deg) saturate(1.3) brightness(1.05); }
+
+.profile-switch::after {
+  content:"";
+  position:absolute;
+  right:0;
+  top:100%;
+  width:220px;  /* same width as dropdown */
+  height:12px;  /* buffer area to prevent flicker */
+  background:transparent;
+}
+
+:root{
+  --bg:#141414;           /* Netflix dark */
+  --panel:#181818;
+  --text:#e5e5e5;
+  --muted:#b3b3b3;
+  --red:#e50914;          /* Netflix red */
+  --shadow: 0 8px 30px rgba(0,0,0,.45);
+  --radius:22px;
+}
+
+/* Reset */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+/* Header */
+.hero{
+  position:relative;
+  padding: clamp(64px, 12vw, 120px) 24px 32px;
+  text-align:center;
+  overflow:hidden;
+}
+.title{
+  font-size:1.9rem; font-weight:800; letter-spacing:.02em;
+  margin:0 0 8px;
+  color: red;
+}
+
+.subtitle{
+  margin:0 auto;
+  max-width:780px;
+  color:white;
+  line-height:1.8;
+  font-size: 1.1rem;
+}
+
+/* Timeline wrapper */
+.timeline{
+  width:min(1100px, 92vw);
+  margin: 40px auto 120px;
+  position:relative;
+}
+
+/* Vertical line */
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top: 0;
+  bottom:0;
+  width:3px;
+  transform:translateX(-50%);
+  background: linear-gradient(to bottom, rgba(229,9,20,0), var(--red), rgba(229,9,20,0));
+  box-shadow: 0 0 18px rgba(229,9,20,.35);
+}
+
+/* Items */
+.item{
+  width:50%;
+  padding: 22px;
+  position:relative;
+}
+.item:nth-child(odd){
+  margin-left:auto;        /* right side */
+  padding-left:48px;
+  text-align:left;
+}
+.item:nth-child(even){
+  margin-right:auto;       /* left side */
+  padding-right:48px;
+  text-align:right;
+}
+
+/* Connector dot */
+.item::before{
+  content:"";
+  position:absolute;
+  top:14px;
+  width:18px;height:18px;border-radius:50%;
+  background:var(--bg);
+  outline:3px solid var(--red);
+  box-shadow:0 0 0 6px rgba(229,9,20,.12), 0 0 18px rgba(229,9,20,.45);
+}
+.item:nth-child(odd)::before{ left:0px; transform:translateX(-50%); }
+.item:nth-child(even)::before{ right:0px; transform:translateX(50%); }
+
+/* Card */
+.card{
+  background:var(--panel);
+  border:1px solid rgba(255,255,255,.06);
+  border-left:4px solid var(--red);
+  box-shadow:var(--shadow);
+  border-radius: var(--radius);
+  padding: 22px clamp(18px, 2.6vw, 28px);
+  display:grid;
+  gap:8px;
+  transform: translateY(28px) scale(.98);
+  opacity:0;
+  filter:saturate(.85);
+  transition: transform .7s cubic-bezier(.2,.65,.2,1), opacity .7s ease, filter .7s ease;
+}
+.item.show .card{
+  transform: translateY(0) scale(1);
+  opacity:1; filter:saturate(1);
+}
+
+.year{
+  font: 700 34px/1 "Bebas Neue", sans-serif;
+  letter-spacing:.08em;
+  color:var(--red);
+}
+.heading{
+  font-weight:700;
+  font-size: clamp(16px, 1.4vw, 18px);
+}
+.meta{
+  color:var(--muted);
+  font-size:14px;
+}
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px; margin-top:8px;
+}
+.tag{
+  font-size:12px; letter-spacing:.02em;
+  padding:6px 10px; border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgb(116, 15, 20);
+  color:#fff;
+}
+
+/* Hover accent */
+.card:hover{ border-color: rgba(255,255,255,.14); }
+.card:hover .year{ text-shadow:0 0 14px rgba(229,9,20,.35); }
+
+/* Responsive */
+@media (max-width: 780px){
+  .timeline::before{ left:24px; transform:none; }
+  .item{ width:100%; padding-left:56px; padding-right:0; text-align:left; }
+  .item:nth-child(even){ margin-left:0; }
+  .item::before{ left:24px; transform:none; }
+}
+
+/* Accessibility: reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .card{ transition:none; transform:none !important; opacity:1 !important; }
+}
+
+/* Small footer note */
+footer{
+  color:var(--muted);
+  text-align:center;
+  padding:40px 16px 80px;
+  font-size:13px;
+}
+
+/* Base date styles */
+.date {
+  position: absolute;
+  top: 20px;                /* aligns with top of the card/dot */
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #fff;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+/* Card on RIGHT side → Date goes LEFT of the line */
+.item:nth-child(odd) .date {
+  left: 25px;               /* anchor at center line */
+  transform: translateX(-140%);  /* push to the left side */
+  text-align: right;
+  top: 15px;
+  font-size: 1.2rem;
+}
+
+/* Card on LEFT side → Date goes RIGHT of the line */
+.item:nth-child(even) .date {
+  right: 25px;                /* anchor at center line */
+  transform: translateX(140%);   /* push to the right side */
+  text-align: left;
+  top: 15px;
+  font-size: 1.2rem;
+}
+
+/* Responsive: on narrow screens stack date above card */
+@media (max-width: 780px) {
+  .date {
+    position: relative;
+    top: 0;
+    left: auto; right: auto;
+    transform: none;
+    display: block;
+    margin-bottom: 6px;
+    text-align: left;
+  }
+}
+
+/* Keyframes for top→down pop */
+@keyframes dropIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px) scale(0.96);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(0) scale(1.04); /* little overshoot */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Apply to hero heading + subtitle */
+.hero .title,
+.hero .subtitle {
+  opacity: 0;
+  transform: translateY(-40px) scale(0.96);
+  animation: dropIn 2.8s cubic-bezier(.2,.8,.25,1) forwards;
+}
+
+.hero .title { animation-delay: 0.1s; }
+.hero .subtitle { animation-delay: 0.3s; }
+
+/* ── Slide each card in from its side (no HTML changes needed) ── */
+/* Even items are on the LEFT in your layout */
+.item:nth-child(even) .card{
+  transform: translateX(-200px);   /* start off-screen to the left */
+  opacity: 0;
+}
+
+/* Odd items are on the RIGHT in your layout */
+.item:nth-child(odd) .card{
+  transform: translateX(200px);    /* start off-screen to the right */
+  opacity: 0;
+}
+
+/* When your JS adds .show to .item, slide to place */
+.item.show .card{
+  transform: translateX(0) scale(1);  /* override the old translateY */
+  opacity: 1;
+  transition: transform 2.8s cubic-bezier(.2,.65,.2,1), opacity 1.2s ease;
+}
+

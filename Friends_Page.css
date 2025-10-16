@@ -1,0 +1,48 @@
+:root{ 
+  --bg:#141414;   /* unified background */
+  --fg:#f5f7fb; 
+  --muted:#d5d9e2; 
+  --border:rgba(255,255,255,.12); 
+}
+
+html,body{ height:100% }
+body{ margin:0; font-family:'Inter',sans-serif; background:var(--bg); color:var(--fg); }
+
+/* NAV */
+.nav{ position:fixed; top:0; left:0; right:0; height:68px; display:flex; align-items:center; padding:0 28px; z-index:30; }
+.nav::before{ content:""; position:absolute; inset:0; backdrop-filter:blur(6px);
+  background:linear-gradient(to bottom, rgba(10,10,14,.75), rgba(10,10,14,.35) 70%, transparent);
+  border-bottom:1px solid var(--border); z-index:-1; }
+.logo{ height:142px; width:auto; display:block; }
+.nav-links{ display:flex; align-items:center; gap:20px; margin-left:30px; }
+.nav a{ color:var(--muted); text-decoration:none; font-weight:600; }
+.nav a:hover{ color:#fff; }
+.spacer{ flex:1 }
+
+.avatar{ width:36px; height:36px; overflow:hidden; border:1px solid var(--border); border-radius:4px; }
+.avatar img{ width:100%; height:100%; object-fit:cover }
+.profile-switch{ position:relative; }
+.profile-trigger{ display:flex; align-items:center; gap:10px; cursor:pointer; }
+.caret{ width:0; height:0; border-left:6px solid transparent; border-right:6px solid transparent; border-top:8px solid #fff; transition:transform .2s ease; }
+.profile-switch .menu{ display:none; position:absolute; right:0; top:100%; margin-top:8px; background:#111215; border:1px solid var(--border); border-radius:10px; padding:8px; list-style:none; min-width:190px; z-index:40; }
+.profile-switch:hover .menu{ display:block; }
+.profile-switch:hover .caret{ transform:rotate(180deg); }
+.menu .menu-item{ display:flex; align-items:center; gap:10px; padding:10px 12px; color:#fff; text-decoration:none; border-radius:8px; }
+.menu .menu-item:hover{ background:#1f222c; }
+.avatar.small{ width:28px; height:28px; border-radius:4px; }
+.avatar-blue img{ filter:hue-rotate(200deg) saturate(1.3) brightness(1.05); }
+
+.stage{ padding:110px 24px 56px; max-width:1100px; margin:0 auto; }
+.coming-soon{ padding:40px; border:1px solid var(--border); border-radius:14px; background:#14161c; }
+.coming-soon h1{ margin:0 0 10px; }
+
+.profile-switch::after {
+  content:"";
+  position:absolute;
+  right:0;
+  top:100%;
+  width:220px;  /* same width as dropdown */
+  height:12px;  /* buffer area to prevent flicker */
+  background:transparent;
+}
+

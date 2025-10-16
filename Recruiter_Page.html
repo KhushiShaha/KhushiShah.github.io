@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/KS.png">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="Recruiter_Page.css" rel="stylesheet">
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <a class="brand" href="Main_Page.html" title="Back to profiles">
+      <img class="logo" src="images/logo.png" alt="Logo">
+    </a>
+
+    <div class="nav-links">
+      <a href="Main_Page.html">Home</a>
+      <a href="Professional_Page.html">Professional</a>
+      <a href="Skills_Page.html">Skills</a>
+      <a href="Project_Page.html">Projects</a>
+      <a href="HireMe_Page.html">Hire Me</a>
+    </div>
+
+    <div class="spacer"></div>
+
+    <!-- Netflix-style profile dropdown (hover) -->
+    <div class="profile-switch" id="profileSwitch">
+      <div class="profile-trigger">
+        <div class="avatar">
+          <img src="images/user1.png" alt="Profile">
+        </div>
+        <span class="caret" aria-hidden="true"></span>
+      </div>
+
+      <ul class="menu">
+        <li>
+          <a href="Recruiter_Page.html" class="menu-item">
+            <span class="avatar small">
+              <img src="images/user1.png" alt="Recruiter">
+            </span>
+            Recruiter
+          </a>
+        </li>
+        <li>
+          <a href="Friends_Page.html" class="menu-item">
+            <span class="avatar small avatar-blue">
+              <img src="images/user1.png" alt="Friends">
+            </span>
+            Friends
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="bg-media">
+      <img src="images/img1.jpeg" alt="Background">
+    </div>
+    <div class="bg-overlay"></div>
+
+    <div class="hero-inner">
+      <h1 class="headline">Khushi Bhushan Shah - Data Analyst</h1>
+      <p class="lead">
+        Analytical and detail-oriented Data Analyst with a strong foundation in SQL, Python, Tableau, Power BI, and Excel, combined with a passion for transforming raw data into actionable business insights. With experience across cross-functional teams, I specialize in building dashboards, performing deep-dive analyses, and delivering data narratives that drive strategic decisions. Adept at explaining complex findings to non-technical stakeholders, I thrive in environments that value curiosity, clear communication, and measurable impact. From optimizing campaign performance to uncovering customer behavior trends, I bring a proactive mindset and a proven ability to bridge the gap between data and decision-making.
+      </p>
+      <div class="cta-row">
+        <a href="Resume_Page.html" class="btn btn-white">▶ Resume</a>
+        <a href="https://www.linkedin.com/in/khushi-b-shah/" target="_blank" rel="noopener" class="btn btn-grey">ⓘ LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PICKS (Netflix-like horizontal row) -->
+  <section class="picks">
+    <h2>Today's Top Picks for Recruiter</h2>
+
+    <div class="picks-viewport">
+      <div class="picks-rail" id="picksRail" tabindex="0" aria-label="Scroll left/right to view more">
+        <!-- Work Permit (wired to local page using relative link) -->
+        <a href="Work_Permit.html" class="pick-card">
+          <img src="images/img2.jpeg" alt="Work Permit">
+          <span class="title">Work Permit</span>
+        </a>
+
+        <!-- Skills (placeholder for now) -->
+        <a href="Skills_Page.html" class="pick-card">
+          <img src="images/img3.webp" alt="Skills">
+          <span class="title">Skills</span>
+        </a>
+
+        <!-- Experience (placeholder for now) -->
+        <a href="Professional_Page.html" class="pick-card">
+          <img src="images/img4.jpeg" alt="Experience">
+          <span class="title">Experience</span>
+        </a>
+
+        <!-- Certifications (placeholder for now; note: .wepb vs .webp) -->
+        <a href="Certification_Page.html" class="pick-card">
+          <img src="images/img5.webp" alt="Certifications">
+          <span class="title">Certifications</span>
+        </a>
+
+        <!-- Projects (placeholder for now) -->
+        <a href="Project_Page.html" class="pick-card">
+          <img src="images/img7.jpg" alt="Projects">
+          <span class="title">Projects</span>
+        </a>
+
+        <!-- Contact Me (placeholder for now) -->
+        <a href="HireMe_Page.html" class="pick-card">
+          <img src="images/img8.jpg" alt="Contact Me">
+          <span class="title">Contact Me</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script src="Recruiter_Page.js" defer></script>
+</body>
+</html>

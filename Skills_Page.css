@@ -1,0 +1,271 @@
+:root{
+  --bg:#141414;
+  --fg:#f5f7fb;
+  --muted:#d5d9e2;
+  --border:rgba(255,255,255,.12);
+  --shadow:0 10px 30px rgba(0,0,0,.45);
+
+  --panel:#15171d;
+  --panelBorder:#ff2c2c;
+}
+
+*{ box-sizing:border-box }
+html,body{ height:100% }
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--fg);
+}
+
+/* NAV */
+.nav{
+  position:fixed; top:0; left:0; right:0; height:68px;
+  display:flex; align-items:center; padding:0 28px; z-index:30;
+}
+.nav::before{
+  content:""; position:absolute; inset:0;
+  backdrop-filter:blur(6px);
+  background:linear-gradient(to bottom, rgba(10,10,14,.75), rgba(10,10,14,.35) 70%, transparent);
+  border-bottom:1px solid var(--border); z-index:-1;
+}
+.logo{ height:142px; width:auto; display:block }
+.nav-links{ display:flex; align-items:center; gap:20px; margin-left:30px }
+.nav a{ color:var(--muted); text-decoration:none; font-weight:600 }
+.nav a:hover{ color:var(--fg) }
+.spacer{ flex:1 }
+
+/* Profile switcher */
+.avatar{ width:36px; height:36px; overflow:hidden; border:1px solid var(--border); border-radius:4px }
+.avatar img{ width:100%; height:100%; object-fit:cover }
+.profile-switch{ position:relative }
+.profile-trigger{ display:flex; align-items:center; gap:10px; cursor:pointer }
+.caret{ width:0; height:0; border-left:6px solid transparent; border-right:6px solid transparent; border-top:8px solid #fff; transition:transform .2s }
+.profile-switch .menu{
+  display:none; position:absolute; right:0; top:100%; margin-top:8px;
+  background:#111215; border:1px solid var(--border); border-radius:10px;
+  box-shadow:var(--shadow); padding:8px; list-style:none; min-width:190px; z-index:40;
+}
+.profile-switch:hover .menu{ display:block }
+.profile-switch:hover .caret{ transform:rotate(180deg) }
+.profile-switch::after{ content:""; position:absolute; right:0; top:100%; width:220px; height:12px; background:transparent }
+.menu .menu-item{ display:flex; align-items:center; gap:10px; padding:10px 12px; color:var(--fg); text-decoration:none; border-radius:8px }
+.menu .menu-item:hover{ background:#1f222c }
+.avatar.small{ width:28px; height:28px; border-radius:4px }
+.avatar-blue img{ filter:hue-rotate(200deg) saturate(1.3) brightness(1.05) }
+
+/* ===== Skills page ===== */
+.skills-main{ padding-top:100px } /* space from fixed nav */
+
+.skills-section{
+  width:min(1200px,92vw);
+  margin:0 auto 90px;
+  text-align:center;
+}
+
+.skills-heading{
+  font-size:1.8rem; font-weight:800; letter-spacing:.02em;
+  margin:0 0 8px;
+}
+
+.heading-line {
+  display: block;
+  height: 4px;
+  background: var(--panelBorder);
+  border-radius: 3px;
+  margin: 6px auto 24px auto;
+  width: calc(100% + 30px);   /* 30px longer than text */
+  max-width: 300px;           /* don’t let it grow too big */
+}
+
+/* Rows & Cards (uniform tall cards) */
+.skills-row{
+  display:flex; flex-wrap:wrap; justify-content:center; align-items:stretch;
+  gap:28px;
+}
+
+.skill-card{
+  width: 200px;
+  height: 250px;
+  background: #1E1E1E;
+  border-radius: 16px;
+  padding: 24px 18px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.55); /* black depth shadow */
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease, background .18s ease;
+
+  display:flex; flex-direction:column; align-items:center; text-align:center;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.skill-card h3{
+  margin:0 0 10px; font-size:1.15rem; font-weight:800; color:#fff;
+  min-height:2.4em; display:flex; align-items:flex-end; justify-content:center;
+  display: inline-block;
+  clip-path: inset(0 100% 0 0); 
+  -webkit-clip-path: inset(0 100% 0 0);
+  animation: revealX 1s ease-out forwards;
+  margin-bottom: 1px;
+}
+
+.skill-card p{
+  margin:0; font-size:.98rem; color:#b7bec8; line-height:1.35;
+  margin-top:0; min-height:2.7em; /* consistent bottoms */
+}
+
+.skill-card:hover{
+  transform: translateY(-6px);
+  border-color: var(--panelBorder);
+  box-shadow: 0 0 25px rgba(255, 44, 44, 0.6); /* red glow */
+  background: #1a1a1a; /* subtle darker background on hover */
+}
+
+.skill-icon{
+  height:44px; width:auto; margin-bottom:14px; object-fit:contain;
+  user-select:none; pointer-events:none;
+}
+
+.profile-switch::after {
+  content:"";
+  position:absolute;
+  right:0;
+  top:100%;
+  width:220px;  /* same width as dropdown */
+  height:12px;  /* buffer area to prevent flicker */
+  background:transparent;
+}
+
+.skills-main::after{
+  content:"";
+  display:block;
+  height:40px;   /* the extra space you want */
+}
+
+/* Responsive */
+@media (max-width:1200px){
+  .skill-card{ width:210px; height:320px }
+}
+@media (max-width:1024px){
+  .skills-main{ padding-top:110px }
+  .skill-card{ width:200px; height:320px }
+}
+@media (max-width:860px){
+  .skills-row{ gap:22px }
+  .skill-card{ width:46%; max-width:280px; height:320px }
+}
+@media (max-width:560px){
+  .skill-card{ width:100%; max-width:420px; height:320px }
+}
+
+/* ── Headings reveal left → right on page load (no HTML changes) ── */
+@keyframes revealX {
+  to { clip-path: inset(0 0 0 0); }
+}
+
+.skills-section .skills-heading{
+  display: inline-block;          /* keep width tight to text */
+  clip-path: inset(0 100% 0 0);   /* hide from left→right */
+  -webkit-clip-path: inset(0 100% 0 0);
+  animation: revealX 1.1s ease-out forwards;
+}
+
+/* Left→Right reveal keyframes */
+@keyframes revealX {
+  to { clip-path: inset(0 0 0 0); }
+}
+
+/* ── Wave effect ── */
+/* Row 1 (smallest delay) */
+.skills-section:nth-of-type(1) .skills-row .skill-card:nth-of-type(1) h3 { animation-delay: 0.10s; }
+.skills-section:nth-of-type(1) .skills-row .skill-card:nth-of-type(2) h3 { animation-delay: 0.10s; }
+.skills-section:nth-of-type(1) .skills-row .skill-card:nth-of-type(3) h3 { animation-delay: 0.10s; }
+.skills-section:nth-of-type(1) .skills-row .skill-card:nth-of-type(4) h3 { animation-delay: 0.10s; }
+
+/* Row 2 (start slightly later than row 1) */
+.skills-section:nth-of-type(2) .skills-row .skill-card:nth-of-type(1) h3 { animation-delay: 0.10s; }
+.skills-section:nth-of-type(2) .skills-row .skill-card:nth-of-type(2) h3 { animation-delay: 0.10s; }
+.skills-section:nth-of-type(2) .skills-row .skill-card:nth-of-type(3) h3 { animation-delay: 0.10s; }
+.skills-section:nth-of-type(2) .skills-row .skill-card:nth-of-type(4) h3 { animation-delay: 0.10s; }
+
+/* Row 3 (later still) */
+.skills-section:nth-of-type(3) .skills-row .skill-card:nth-of-type(1) h3 { animation-delay: 0.10s; }
+.skills-section:nth-of-type(3) .skills-row .skill-card:nth-of-type(2) h3 { animation-delay: 0.10s; }
+/* …and so on */
+
+/* Second card overlay */
+.skill-details {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: #1E1E1E;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.55);
+  padding: 24px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.95);
+  transition: all 0.3s ease;
+  z-index: 5;
+  color: #fff;
+  overflow-y: auto;          /* internal scroll */
+  scrollbar-width: none;     /* hide scrollbar for Firefox */
+  -ms-overflow-style: none;  /* hide scrollbar for IE/Edge */
+}
+
+
+/* Visible when active */
+.skill-card.active .skill-details {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  display: block;
+}
+
+/* Prevent hover transitions when overlay is visible */
+.skill-card.show-details:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.skill-card.show-details {
+  pointer-events: none; /* disables hover detection */
+}
+.skill-card.show-details .skill-details {
+  pointer-events: all;  /* keep overlay clickable */
+}
+
+/* Hide scrollbar for Chrome, Edge, Safari */
+.skill-details::-webkit-scrollbar {
+  display: none;
+}
+
+.skill-details-content {
+  text-align: left;   /* ensure all paragraphs & lists align properly */
+  padding: 20px 24px; /* gives space from both sides */
+  line-height: 1.6;
+}
+
+.skill-details-content p{
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+
+.skill-card::after {
+  content: "Tap to view";
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  color: rgba(255,255,255,0);
+  transition: color 0.3s ease;
+}
+.skill-card:hover::after {
+  color: #ff2c2c;
+}

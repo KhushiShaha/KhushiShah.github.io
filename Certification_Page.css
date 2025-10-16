@@ -1,0 +1,278 @@
+:root{
+  --bg: #141414;             /* page bg */
+  --fg: #f5f7fb;
+  --muted: #d5d9e2;
+  --border: rgba(255,255,255,.12);
+  --shadow: 0 10px 30px rgba(0,0,0,.45);
+
+  --panel: #15171d;
+  --panelBorder: #ff2c2c;
+}
+
+/* Reset / base */
+*{ box-sizing: border-box }
+html, body { height: 100% }
+body{
+  margin:0;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* NAV (same as other pages) */
+.nav{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+  z-index: 30;
+}
+.nav::before{
+  content:"";
+  position:absolute; inset:0;
+  backdrop-filter: blur(6px);
+  background:linear-gradient(to bottom, rgba(10,10,14,.75), rgba(10,10,14,.35) 70%, transparent);
+  border-bottom: 1px solid var(--border);
+  z-index: -1;
+}
+.logo{ height:142px; width:auto; display:block; }
+.nav-links{ display:flex; align-items:center; gap:20px; margin-left:30px; }
+.nav a{ color:var(--muted); text-decoration:none; font-weight:600; }
+.nav a:hover{ color:var(--fg); }
+.spacer{ flex:1 }
+
+.avatar{ width:36px; height:36px; overflow:hidden; border:1px solid var(--border); border-radius:4px;}
+.avatar img{ width:100%; height:100%; object-fit:cover }
+.profile-switch{ position:relative; }
+.profile-trigger{ display:flex; align-items:center; gap:10px; cursor:pointer; }
+.caret{ width:0; height:0; border-left:6px solid transparent; border-right:6px solid transparent; border-top:8px solid #fff; transition:transform .2s ease; }
+.profile-switch .menu{
+  display:none; position:absolute; right:0; top:100%; margin-top:8px;
+  background:#111215; border:1px solid var(--border); border-radius:10px;
+  box-shadow:var(--shadow); padding:8px; list-style:none; min-width:190px; z-index:40;
+}
+.profile-switch:hover .menu{ display:block; }
+.profile-switch:hover .caret{ transform:rotate(180deg); }
+.profile-switch::after{ content:""; position:absolute; right:0; top:100%; width:220px; height:12px; background:transparent; }
+.menu .menu-item{ display:flex; align-items:center; gap:10px; padding:10px 12px; color:var(--fg); text-decoration:none; border-radius:8px;}
+.menu .menu-item:hover{ background:#1f222c; }
+.avatar.small{ width:28px; height:28px; border-radius:4px; }
+.avatar-blue img{ filter: hue-rotate(200deg) saturate(1.3) brightness(1.05); }
+
+/* ——— Certificates grid ——— */
+.certificates-main{
+  padding: 160px 24px 80px;       /* clear fixed nav */
+  display:flex; justify-content:center;
+}
+.certificates-section{ width:100%; max-width:1100px; }
+
+.cert-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.cert-card{
+  position: relative;             /* for overlay */
+  overflow: hidden;               /* clip overlay corners */
+  background: #1E1E1E;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 18px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--fg);
+  box-shadow: var(--shadow);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+
+  min-height: 260px;
+}
+.cert-card:hover{
+  transform: translateY(-6px);
+  border-color: rgba(255,255,255,.18);
+  box-shadow: 0 12px 28px rgba(229, 9, 20, .35);
+}
+
+.cert-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--fg);
+  margin-bottom: 8px;
+  padding-top: 70px;
+}
+.cert-issuer {
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--muted);
+}
+.cert-date {
+  font-size: 14px;
+  font-weight: 400;
+  color: grey;
+  padding-top: 40px;
+}
+
+/* —— Hover overlay (glass) —— */
+/* —— Hover overlay (gradient rise) —— */
+.cert-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0; /* start collapsed */
+  background: linear-gradient(to top, rgba(255, 0, 0, 0.85), rgba(255, 0, 0, 0));
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  z-index: 2;
+
+  transition: height 0.8s ease;
+}
+
+.cert-card:hover .cert-overlay {
+  height: 100%; /* rises upward */
+}
+
+
+.view-link {
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+/* —— Modal —— */
+.cert-modal {
+  display: none;                  /* toggled to flex by JS */
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+
+  justify-content: center;
+  align-items: center;
+}
+
+.cert-modal-content {
+  position: relative;             /* anchor for close button */
+  background: #1E1E1E;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 700px;
+  width: 90%;
+  color: #fff;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  animation: popUp 0.4s ease;
+}
+
+/* Close button (TOP RIGHT of the BOX) */
+.close{
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #000;          /* black circle */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;               /* white X */
+  line-height: 1;
+
+  cursor: pointer;
+  user-select: none;
+  border: none;
+  outline: none;
+  transition: color .25s ease, transform .1s ease;
+}
+.close:hover { color: #ff0000; }
+.close:active { transform: scale(0.96); }
+
+/* Image area */
+.cert-image {
+  flex: 3;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.cert-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0;
+}
+
+/* Resume button */
+.cert-actions {
+  margin: 16px 0 4px;
+}
+.resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  background: #fff;
+  color: #000;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.resume-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Text area */
+.cert-text {
+  flex: 1;
+  margin-top: 15px;
+}
+
+/* Popup animation */
+@keyframes popUp {
+  from { transform: scale(0.85); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+
+.cert-card {
+  opacity: 0;
+  transform: translateX(120%) rotateZ(20deg);
+  animation: swipeIn 0.8s ease forwards;
+}
+
+@keyframes swipeIn {
+  to {
+    opacity: 1;
+    transform: translateX(0) rotateZ(0);
+  }
+}
+
+

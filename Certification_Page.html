@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio</title>
+
+  <link rel="icon" type="image/png" href="images/KS.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="Certification_Page.css" rel="stylesheet">
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <a class="brand" href="Recruiter_Page.html" title="Go to Home">
+      <img class="logo" src="images/logo.png" alt="Logo">
+    </a>
+
+    <div class="nav-links">
+      <a href="Recruiter_Page.html">Home</a>
+      <a href="Professional_Page.html">Professional</a>
+      <a href="Skills_Page.html">Skills</a>
+      <a href="Project_Page.html">Projects</a>
+      <a href="HireMe_Page.html">Hire Me</a>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="profile-switch">
+      <div class="profile-trigger">
+        <div class="avatar">
+          <img src="images/user1.png" alt="Profile">
+        </div>
+        <span class="caret" aria-hidden="true"></span>
+      </div>
+
+      <ul class="menu">
+        <li>
+          <a href="Recruiter_Page.html" class="menu-item">
+            <span class="avatar small">
+              <img src="images/user1.png" alt="Recruiter">
+            </span>
+            Recruiter
+          </a>
+        </li>
+        <li>
+          <a href="Friends_Page.html" class="menu-item">
+            <span class="avatar small avatar-blue">
+              <img src="images/user1.png" alt="Friends">
+            </span>
+            Friends
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- GRID -->
+  <main class="certificates-main">
+    <section class="certificates-section">
+      <div class="cert-grid">
+        <!-- Card 1 -->
+        <div
+          class="cert-card"
+          data-img="images/deloitte.jpg"
+          data-issuer="Learned to approach business problems through data-driven methods by performing data cleaning, analysis, and visualization in Excel. 
+          Gained experience transforming raw datasets into actionable business insights, similar to a real Deloitte data analytics workflow."
+          data-resume="https://www.theforage.com/simulations/deloitte-au/data-analytics-s5zy"
+        >
+          <h3 class="cert-title">Data Analytics Job Simulation</h3>
+          <p class="cert-issuer">Deloitte</p>
+          <p class="cert-date">Issued Jul 2025</p>
+          <div class="cert-overlay">
+            <a class="view-link">View Me</a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div
+          class="cert-card"
+          data-img="images/Google_DA.png"
+          data-issuer="Learned the complete data analysis process — from collecting and cleaning data to analyzing and presenting results using R, SQL, 
+          and spreadsheets. Developed the ability to interpret datasets, build visualizations, and communicate findings effectively."
+          data-resume="https://www.credly.com/badges/465c753a-6e2c-4293-98ea-b340069a9d45/public_url"
+        >
+          <h3 class="cert-title">Data Analytics</h3>
+          <p class="cert-issuer">Google</p>
+          <p class="cert-date">Issued Oct 2025</p>
+          <div class="cert-overlay">
+            <a class="view-link">View Me</a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+
+        <!-- Card 4 -->
+        <div
+          class="cert-card"
+          data-img="images/google-bi.png"
+          data-issuer="Learned to design and build BI solutions that turn data into strategic insights. Practiced 
+          data modeling, ETL processes, and dashboard creation to support business decision-making."
+          data-resume="https://www.credly.com/badges/07bcde0f-3511-44d3-b9a2-4712c495a22c/public_url"
+        >
+          <h3 class="cert-title">Business Intelligence</h3>
+          <p class="cert-issuer">Google</p>
+          <p class="cert-date">Issued Oct 2025</p>
+          <div class="cert-overlay">
+            <a class="view-link">View Me</a>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div
+          class="cert-card"
+          data-img="images/Udemy.jpg"
+          data-issuer="Learned Python programming from fundamentals to advanced concepts including loops, functions, and object-oriented programming. 
+          Applied these skills to automate workflows, manipulate data, and build real-world scripts."
+          data-resume="https://www.udemy.com/certificate/UC-07c9cdb9-0ad7-43cc-9d71-757335e969fd/"
+        >
+          <h3 class="cert-title">The Complete Python Bootcamp</h3>
+          <p class="cert-issuer">Udemy</p>
+          <p class="cert-date">Issued Oct 2025</p>
+          <div class="cert-overlay">
+            <a class="view-link">View Me</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ONE modal reused by all cards -->
+  <div class="cert-modal" id="certModal">
+    <div class="cert-modal-content">
+      <!-- close button (white → red on hover; CSS targets .close) -->
+      <button class="close" id="closeModal" aria-label="Close">&times;</button>
+
+      <!-- Image (3/4 height visually due to flex sizing in CSS) -->
+      <div class="cert-image">
+        <img id="modalImg" src="" alt="Certificate">
+      </div>
+
+      <!-- Resume button -->
+      <div class="cert-actions">
+        <a id="modalResume" href="#" target="_blank" rel="noopener" class="resume-btn">▶ View</a>
+      </div>
+
+      <!-- Title + issuer/date -->
+      <div class="cert-text">
+        <h2 id="modalTitle">Certificate Title</h2>
+        <p id="modalMeta">Issued by Organization, Date</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Minimal wiring to populate modal from data-* attributes -->
+  <script>
+    const modal = document.getElementById('certModal');
+    const modalImg = document.getElementById('modalImg');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalMeta = document.getElementById('modalMeta');
+    const modalResume = document.getElementById('modalResume');
+    const closeBtn = document.getElementById('closeModal');
+
+    // open modal with specific card data
+    document.querySelectorAll('.cert-card .view-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const card = e.currentTarget.closest('.cert-card');
+        const img = card.dataset.img || '';
+        const title = card.dataset.title || '';
+        const issuer = card.dataset.issuer || '';
+        const date = card.dataset.date || '';
+        const resume = card.dataset.resume || '#';
+
+        modalImg.src = img;
+        modalTitle.textContent = title;
+        modalMeta.textContent = `${issuer ? issuer : ''}${issuer && date ? ' — ' : ''}${date ? date : ''}`;
+        modalResume.href = resume;
+
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    // close handlers
+    function closeModal() {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+      modalImg.src = ''; // optional cleanup
+    }
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+  <script src="Certification_Page.js" defer></script>
+</body>
+</html>

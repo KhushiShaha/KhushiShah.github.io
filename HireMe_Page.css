@@ -1,0 +1,301 @@
+:root{
+  --bg: #141414; /* plain black page */
+  --fg: #f5f7fb;
+  --muted: #d5d9e2;
+  --border: rgba(255,255,255,.12);
+  --shadow: 0 10px 30px rgba(0,0,0,.45);
+
+  --panel: #15171d;
+  --panelBorder: #ff2c2c; /* red accent for dotted border */
+}
+*{ box-sizing: border-box }
+html, body { height: 100% }
+body{
+  margin:0;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* NAV (same behavior/look as other page) */
+.nav{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+  z-index: 30;
+}
+.nav::before{
+  content:"";
+  position:absolute; inset:0;
+  backdrop-filter: blur(6px);
+  background:linear-gradient(to bottom, rgba(10,10,14,.75), rgba(10,10,14,.35) 70%, transparent);
+  border-bottom: 1px solid var(--border);
+  z-index: -1;
+}
+.logo{ height:142px; width:auto; display:block; }
+.nav-links{ display:flex; align-items:center; gap:20px; margin-left:30px; }
+.nav a{ color:var(--muted); text-decoration:none; font-weight:600; }
+.nav a:hover{ color:var(--fg); }
+.spacer{ flex:1 }
+
+/* profile switcher (hover) */
+.avatar{ width:36px; height:36px; overflow:hidden; border:1px solid var(--border); border-radius:4px;}
+.avatar img{ width:100%; height:100%; object-fit:cover }
+.profile-switch{ position:relative; }
+.profile-trigger{ display:flex; align-items:center; gap:10px; cursor:pointer; }
+.caret{ width:0; height:0; border-left:6px solid transparent; border-right:6px solid transparent; border-top:8px solid #fff; transition:transform .2s ease; }
+.profile-switch .menu{
+  display:none; position:absolute; right:0; top:100%; margin-top:8px;
+  background:#111215; border:1px solid var(--border); border-radius:10px;
+  box-shadow:var(--shadow); padding:8px; list-style:none; min-width:190px; z-index:40;
+}
+.profile-switch:hover .menu{ display:block; }
+.profile-switch:hover .caret{ transform:rotate(180deg); }
+.profile-switch::after{ content:""; position:absolute; right:0; top:100%; width:220px; height:12px; background:transparent; }
+.menu .menu-item{ display:flex; align-items:center; gap:10px; padding:10px 12px; color:var(--fg); text-decoration:none; border-radius:8px;}
+.menu .menu-item:hover{ background:#1f222c; }
+.avatar.small{ width:28px; height:28px; border-radius:4px; }
+.avatar-blue img{ filter: hue-rotate(200deg) saturate(1.3) brightness(1.05); }
+
+/* --- Hire Me hero --- */
+.hire-hero{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: clamp(90px, 12vw, 140px) 24px 96px;  /* leaves space under your fixed nav */
+  text-align: center;
+}
+
+.hire-title{
+  margin: 0 0 12px;
+  font-weight: 800;
+  font-size: clamp(48px, 7vw, 70px); /* big red title */
+  line-height: .95;
+  color: #e50914;
+  letter-spacing: .01em;
+}
+
+.hire-kicker{
+  margin: 0 0 26px;
+  font-weight: 600;
+  font-size: clamp(20px, 2.4vw, 24px);
+  color: #d7d7d7;
+}
+
+.hire-lead {
+  max-width: 700px;     /* keep it from being too wide */
+  margin: 0 auto 1.5rem; /* centers it */
+  text-align: center;    /* aligns text within */
+  font-size: 17px;
+}
+
+/* contact pills */
+.hire-actions{
+  display: flex;
+  flex-direction: column;   /* one below the other */
+  align-items: center;      /* center horizontally */
+  gap: 12px;                /* space between them */
+  margin-top: 1.5rem;
+}
+
+.hire-pill{
+  --pad: 10px;
+  --radius: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: var(--pad) 18px;
+  background: #1a1a1a;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: #e8e8e8;
+  font-weight: 500;
+  font-size: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.04);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  justify-content: center;
+  min-width: 200px;
+}
+
+.hire-pill svg{
+  width: 20px;
+  height: 20px;
+  fill: #e23b3b;
+}
+
+/* 🔥 Hover effect: pop + red glow */
+.hire-pill:hover{
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 22px rgba(226,59,59,.55), inset 0 0 0 1px rgba(255,255,255,.06);
+  border-color: rgba(226,59,59,.8);
+}
+
+/* outro line */
+.hire-outro{
+  margin: 44px 0 0;
+  color: #e0e0e0;
+  font-size: clamp(18px, 2vw, 18px);
+}
+
+@media (max-width: 560px){
+  .hire-hero{ text-align: left; }
+  .hire-actions{ gap: 18px; }
+}
+
+/* ── Top→Bottom pop-in cascade for Hire Me ── */
+@keyframes riseIn {
+  0%   { opacity:0; transform: translateY(22px) scale(.98); }
+  60%  { opacity:1; transform: translateY(-2px) scale(1.01); }
+  100% { opacity:1; transform: translateY(0)    scale(1); }
+}
+
+/* initial (hidden) */
+.hire-hero .hire-title,
+.hire-hero .hire-kicker,
+.hire-hero .hire-lead,
+.hire-hero .hire-actions .hire-pill,
+.hire-hero .hire-outro{
+  opacity:0; transform: translateY(22px) scale(.98);
+}
+
+/* play = run the cascade */
+.hire-hero.play .hire-title{  animation: riseIn 0.9s ease forwards;            animation-delay: .10s; }
+.hire-hero.play .hire-kicker{ animation: riseIn 0.9s ease forwards;            animation-delay: .30s; }
+.hire-hero.play .hire-lead{   animation: riseIn 0.9s ease forwards;            animation-delay: .50s; }
+.hire-hero.play .hire-actions .hire-pill:nth-of-type(1){ animation: riseIn 0.9s ease forwards; animation-delay: .70s; }
+.hire-hero.play .hire-actions .hire-pill:nth-of-type(2){ animation: riseIn 0.9s ease forwards; animation-delay: .90s; }
+.hire-hero.play .hire-outro{  animation: riseIn 0.9s ease forwards;            animation-delay: 1.10s; }
+
+/* NEW: cascade continues for contact box + social buttons */
+.hire-hero .contact-box,
+.hire-hero .social-buttons{
+  opacity:0; transform: translateY(22px) scale(.98);
+}
+
+.hire-hero.play .contact-box{
+  animation: riseIn 0.9s ease forwards; animation-delay: 1.30s;
+}
+
+.hire-hero.play .social-buttons{
+  animation: riseIn 0.9s ease forwards; animation-delay: 1.55s;
+}
+
+/* accessibility */
+@media (prefers-reduced-motion: reduce){
+  .hire-hero .hire-title,
+  .hire-hero .hire-kicker,
+  .hire-hero .hire-lead,
+  .hire-hero .hire-actions .hire-pill,
+  .hire-hero .hire-outro,
+  .hire-hero .contact-box,
+  .hire-hero .social-buttons{
+    animation:none !important; opacity:1 !important; transform:none !important;
+  }
+}
+
+.contact-box {
+  background: rgba(255, 255, 255, 0.1);  /* semi-transparent white */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  padding: 32px;
+  max-width: 480px;
+  margin: 60px auto;
+  color: #fff;
+}
+
+.contact-box h2 {
+  margin-bottom: 24px;
+  color: white;
+  text-align: center;
+  transform: translateY(-10px);
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 10px 14px;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 6px;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #e50914;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: white;
+  color: #e50914;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin-top: 25px;
+}
+
+.icon-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+}
+
+.icon-btn img {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+.icon-btn:hover {
+  background: white;
+  transform: translateY(-3px);
+}
+
+.download-btn {
+  font-size: 0.95rem;
+  padding: 10px 20px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.4);
+}
+
+.download-btn:hover {
+  background: #e50914;
+}

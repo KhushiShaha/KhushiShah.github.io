@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio</title>
+
+  <link rel="icon" type="image/png" href="images/KS.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="Resume_Page.css" rel="stylesheet">
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <a class="brand" href="Recruiter_Page.html" title="Go to Home">
+      <img class="logo" src="images/logo.png" alt="Logo">
+    </a>
+
+    <div class="nav-links">
+      <a href="Recruiter_Page.html">Home</a>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="profile-switch">
+      <div class="profile-trigger">
+        <div class="avatar">
+          <img src="images/user1.png" alt="Profile">
+        </div>
+        <span class="caret" aria-hidden="true"></span>
+      </div>
+
+      <ul class="menu">
+        <li>
+          <a href="Recruiter_Page.html" class="menu-item">
+            <span class="avatar small">
+              <img src="images/user1.png" alt="Recruiter">
+            </span>
+            Recruiter
+          </a>
+        </li>
+        <li>
+          <a href="Friends_Page.html" class="menu-item">
+            <span class="avatar small avatar-blue">
+              <img src="images/user1.png" alt="Friends">
+            </span>
+            Friends
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- RESUME CARD -->
+  <main class="resume-stage">
+    <article class="resume-card">
+      <header class="resume-header">
+        <h1>Khushi Bhushan Shah</h1>
+        <div class="meta">
+          <span>NY (Open to Relocation)</span>
+          <span>|</span>
+          <a href="mailto:khushishah643@gmail.com">khushishah643@gmail.com</a>
+          <span>|</span>
+          <a href="tel:+16806973258">(680) 697-3258</a>
+        </div>
+      </header>
+
+      <section>
+        <h2>Education</h2>
+        <ul class="items">
+          <li class="list-row">
+            <span><strong>Syracuse University</strong> — M.S. Information Systems</span>
+            <span class="date">May 2025</span>
+          </li>
+          <li class="list-row">
+            <span><strong>University of Pune</strong> — B.E. Computer Science (Honors: AI &amp; ML)</span>
+            <span class="date">May 2022</span>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Skills</h2>
+        <ul class="stacked">
+          <li><strong>Languages &amp; DB:</strong> Python, R, SQL, MySQL, MongoDB, Azure Data Studio, Snowflake</li>
+          <li><strong>Platforms &amp; Tools:</strong> Excel (Power Query, Pivot Tables), Jupyter, RStudio, Agile, GitHub</li>
+          <li><strong>Visualization:</strong> Tableau, Power BI, R Shiny, Google Analytics</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Work Experience</h2>
+
+        <div class="role">
+          <div class="role-head list-row">
+            <span><strong>Syracuse University</strong> — Data Analyst Intern</span>
+            <span class="date">Jan 2025 – May 2025</span>
+          </div>
+          <ul class="bullets">
+            <li>Analyzed event attendance and ticket data with Python (Pandas), identifying a <strong>16.4% drop</strong> in evening conversions and informing scheduling changes.</li>
+            <li>Built Excel dashboards (pivot tables, forecasting, regression) to visualize geographic trends and no-show rates for targeted campaigns.</li>
+            <li>Optimized SQL (joins, window functions) to unify user profiles &amp; transactions; segmented customers by frequency, location, and ticket type.</li>
+            <li>Standardized state-level address attributes and produced weekly performance reports with <strong>97%+</strong> verified accuracy.</li>
+          </ul>
+        </div>
+
+        <div class="role">
+          <div class="role-head list-row">
+            <span><strong>Qualisurge Surgicals Pvt Ltd.</strong> — Data Analyst</span>
+            <span class="date">Jun 2022 – Aug 2023</span>
+          </div>
+          <ul class="bullets">
+            <li>Designed Power BI dashboards combining WooCommerce exports &amp; margin data to track CTR, add-to-cart, and funnel drop-offs.</li>
+            <li>Found <strong>22.4%</strong> mobile cart abandonment via GA; layout changes increased checkout completion <strong>12.3%</strong>.</li>
+            <li>Cleaned 500+ product records in Excel Power Query, reducing catalog errors <strong>31%</strong>.</li>
+            <li>Improved responsive DOM; mobile load time cut from <strong>4.8s → 2.7s</strong>, raising session duration <strong>19.6%</strong>.</li>
+            <li>Integrated product metadata (HS codes, specs, certifications) into structured schema for SEO/compliance.</li>
+          </ul>
+        </div>
+
+        <div class="role">
+          <div class="role-head list-row">
+            <span><strong>Wealo Studio</strong> — Data Analyst</span>
+            <span class="date">Jun 2021 – Dec 2021</span>
+          </div>
+          <ul class="bullets">
+            <li>Built SQL + Python (Pandas/NumPy) pipelines to extract/clean MySQL user activity logs.</li>
+            <li>Automated weekly engagement reporting, surfacing a <strong>17.1%</strong> onboarding drop-off for targeted UX fixes.</li>
+            <li>Created Tableau dashboards for feature adoption and trend analysis; supported data-driven product decisions.</li>
+            <li>Optimized ETL by pairing SQL with Python scripts, saving ~2 hours per week in manual effort.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Projects</h2>
+        <ul class="bullets">
+          <li><strong>Energy Consumption Forecasting &amp; Sustainability Optimization</strong> — R (dplyr, ggplot2), Excel regression, R Shiny dashboard; achieved <strong>23%</strong> higher peak demand accuracy and reduced consumption variance <strong>18%</strong>.</li>
+          <li><strong>Sales Profit Dashboard Development</strong> — Tableau, Excel preprocessing; <br>built interactive dashboard on Superstore sales data to visualize profit by U.S. state and category, enabling regional sales optimization and improving stakeholder decision-making with intuitive filters and 100% data consistency.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Certifications</h2>
+        <ul class="stacked">
+          <li>Deloitte — Data Analysis Virtual Experience</li>
+          <li>Google — Data Analytics Certificate</li>
+          <li>Google — Business Intelligence Certificate</li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <script src="Resume_Page.js" defer></script>
+</body>
+</html>

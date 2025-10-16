@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio</title>
+
+  <link rel="icon" type="image/png" href="images/KS.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="Skills_Page.css" rel="stylesheet">
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <a class="brand" href="Recruiter_Page.html" title="Go to Home">
+      <img class="logo" src="images/logo.png" alt="Logo">
+    </a>
+
+    <div class="nav-links">
+      <a href="Recruiter_Page.html">Home</a>
+      <a href="Professional_Page.html">Professional</a>
+      <a href="Skills_Page.html">Skills</a>
+      <a href="Project_Page.html">Projects</a>
+      <a href="HireMe_Page.html">Hire Me</a>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="profile-switch">
+      <div class="profile-trigger">
+        <div class="avatar">
+          <img src="images/user1.png" alt="Profile">
+        </div>
+        <span class="caret" aria-hidden="true"></span>
+      </div>
+
+      <ul class="menu">
+        <li>
+          <a href="Recruiter_Page.html" class="menu-item">
+            <span class="avatar small">
+              <img src="images/user1.png" alt="Recruiter">
+            </span>
+            Recruiter
+          </a>
+        </li>
+        <li>
+          <a href="Friends_Page.html" class="menu-item">
+            <span class="avatar small avatar-blue">
+              <img src="images/user1.png" alt="Friends">
+            </span>
+            Friends
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <main class="skills-main">
+  <!-- Core Technical Skills -->
+  <section class="skills-section">
+    <h2 class="skills-heading">Core Technical Skills</h2>
+    <span class="heading-line" aria-hidden="true"></span>
+
+    <div class="skills-row">
+
+      <article class="skill-card">
+        <img src="images/Python.png" alt="Python" class="skill-icon">
+        <h3>Python</h3>
+        <p>NumPy, Pandas, Matplotlib</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>Python</h3>
+        <p>Used in the Syracuse University Event Analysis Project for cleaning, modeling, and visualizing event data to identify conversion trends.</p>
+        <br>
+        <p><b>Pandas:</b> Handled data cleaning and aggregation in the Event Analysis Project, uncovering patterns that improved scheduling efficiency.</p>
+        <br>
+        <p><b>NumPy:</b> Applied in the Energy Forecasting Project for array-based numerical analysis and metric computation.</p>
+        <br>
+        <p><b>Matplotlib:</b> Created visual summaries of attendance patterns in the Event Analysis Dashboard.</p>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <img src="images/SQL.png" alt="SQL" class="skill-icon">
+        <h3>SQL</h3>
+        <p>Joins, Window Functions, CTEs, Subqueries, Aggregations</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>SQL</h3>
+        <p>Used in the Dining Management System to manage and query employee shift and menu data through MySQL integration.</p>
+        <br>
+        <p><b>Joins:</b> Combined employee, shift, and reservation tables in the Dining Management System for unified scheduling views.</p>
+        <br>
+        <p><b>Windows Function:</b> Applied in Wealo Studio data workflows to compute running aggregates and user activity metrics.</p>
+        <br>
+        <p><b>CTEs:</b>Applied in the Dining Management System backend for structured data retrieval and cleaner query logic.</p>
+        <br>
+        <p><b>Subqueries:</b> Utilized in the Wealo Studio analytics workflow to filter engagement subsets and support feature testing reports</p>
+        <br>
+        <p><b>Aggregations:</b> Performed in the Sales–Profit Dashboard to summarize sales and profit metrics by region and category for visualization in Tableau.</p>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <img src="images/R.png" alt="R" class="skill-icon">
+        <h3>R</h3>
+        <p>Shiny, ggplot2, dplyr, tidyr</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>R</h3>
+        <p>Built forecasting models and an interactive dashboard in the Energy Forecasting project, improving peak-demand accuracy by 23% and reducing variance 18%.</p>
+        <br>
+        <p><b>Shiny:</b> Delivered a real-time scenario dashboard to explore forecasts and what-if parameters in Energy Forecasting.</p>
+        <br>
+        <p><b>ggplot2:</b> Visualized time-series, residuals, and trend comparisons to explain model performance in Energy Forecasting.</p>
+        <br>
+        <p><b>dplyr:</b> cleaned, joined, and aggregated utility data; engineered features for regression/time-series in Energy Forecasting.</p>
+        <br>
+        <p><b>tidyr:</b> Reshaped wide/long datasets for modeling and Shiny inputs in Energy Forecasting.</p>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <img src="images/HTML.png" alt="HTML" class="skill-icon">
+        <h3>HTML</h3>
+        <p>Web structure, semantic design, responsive templates</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>HTML</h3>
+        <p>Structured responsive pages for the Netflix-themed portfolio (semantic layout for accessibility, interactive sections) 
+          and built role-based UI forms/views for the Dining Management System (CRUD for shifts, menu, reservations) integrated with the Python backend.</p>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <img src="images/CSS.png" alt="CSS" class="skill-icon">
+        <h3>CSS</h3>
+        <p>Styling, layout design, animations, color themes</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>CSS</h3>
+        <p>Styled and animated components for the Netflix-themed portfolio, implementing red glow effects, card flips, 
+          and responsive grids. Designed the Dining Management System interface with a clean, accessible layout for employees and admins.</p>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <img src="images/JS.png" alt="JavaScript" class="skill-icon">
+        <h3>JavaScript</h3>
+        <p>DOM manipulation, interactivity, API integration</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>JavaScript</h3>
+        <p>Powered interactive navigation, hover/scroll animations, and card effects in the Netflix-themed portfolio; 
+          handled form validation and dynamic UI states in the Dining Management System.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Tools & Technologies -->
+  <section class="skills-section">
+    <h2 class="skills-heading">Tools & Technologies</h2>
+    <span class="heading-line" aria-hidden="true"></span>
+
+    <div class="skills-row">
+
+      <article class="skill-card">
+        <img src="images/Power BI.png" alt="PowerBI" class="skill-icon">
+        <h3>PowerBI</h3>
+        <p>DAX, Power Query, KPI Dashboards</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>PowerBI</h3>
+        <p>Developed the Revenue–Operations Dashboard (3 pages, dark theme) with a star model + 
+          Date dimension to unify revenue/ops views; also used at Qualisurge to track funnels and help cut churn 12%.</p>
+        <br>
+        <p><b>DAX:</b> Built rolling averages, target variance, and utilization KPIs in the Revenue–Operations Dashboard for executive monitoring.</p>
+        <br>
+        <p><b>Power Query:</b> Performed data prep and transformations to build the star schema (with Date dimension) for the Revenue–Operations Dashboard.</p>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <img src="images/Tableau.png" alt="Tableau" class="skill-icon">
+        <h3>Tableau</h3>
+        <p>Advanced Visualization, Interactive Dashboards</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>Tableau</h3>
+        <p>Developed the Sales–Profit Dashboard using Superstore data to analyze profit by state, category, and segment, driving faster regional insights.</p>
+        <br>
+        <p><b>Advanced Visualization:</b> Designed KPI cards, trend lines, and geographic heatmaps in the Sales–Profit Dashboard for clear, actionable insights.</p>
+        <br>
+        <p><b>Interactive Dashboards:</b> Implemented category filters, parameters, and drill-down interactions in the Sales–Profit Dashboard for dynamic exploration.</p>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <img src="images/Excel.png" alt="Excel" class="skill-icon">
+        <h3>Excel</h3>
+        <p>Pivot Tables, VLOOKUP, INDEX-MATCH, Forecasting, Regression</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>Excel</h3>
+        <p>Used for data cleaning and preparation in the Sales–Profit Dashboard and regression validation in Energy Forecasting</p>
+        <br>
+        <p><b>Pivot Tables:</b> Summarized regional and category performance in Sales–Profit Analysis, streamlining report generation.</p>
+        <br>
+        <p><b>VLOOKUP:</b> Linked and verified Superstore tables to ensure accurate regional profit comparisons.</p>
+        <br>
+        <p><b>INDEX-MATCH:</b> Applied in Energy Forecasting for precise lookup and validation of historical demand data against predicted trends.</p>
+        <br>
+        <p><b>Regression & Forecasting:</b> Compared predicted vs. actual energy consumption trends in Energy Forecasting, improving variance by 18%.</p>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <img src="images/Jupyter Notebook.png" alt="Jupyter Notebook" class="skill-icon">
+        <h3>Jupyter Notebook</h3>
+        <p>Interactive data analysis, documentation, experimentation</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>Jupyter Notebook</h3>
+        <p>Used in Energy Forecasting and Freelance Analytics Projects to document, visualize, and test data workflows interactively, 
+          combining Python scripts with real-time output for reproducible analysis.</p>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <img src="images/VS Code.png" alt="VS Code" class="skill-icon">
+        <h3>VS Code</h3>
+        <p>Multi-language development, debugging, extensions integration</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>VS Code</h3>
+        <p>Served as the main IDE for developing the Netflix-themed portfolio and Dining Management System, 
+          integrating HTML/CSS/JS with Python backend for seamless debugging and version control.</p>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <img src="images/GitHub.png" alt="GitHub" class="skill-icon">
+        <h3>Github</h3>
+        <p>Version control, repository management, collaboration</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>Github</h3>
+        <p>Used for version control and project documentation across the Netflix-themed portfolio and Dining Management System, 
+          maintaining clean commits and collaborative updates for consistent code tracking.</p>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <img src="images/Google Sheets.png" alt="Google Sheets" class="skill-icon">
+        <h3>Google Sheets</h3>
+        <p>Collaborative Dashboards, Data Cleaning</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>Google Sheets</h3>
+        <p>Utilized in Freelance Analytics Projects to clean and merge client-provided datasets, enabling quick KPI tracking and 
+          collaborative data validation before integration into dashboards.</p>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <img src="images/MS Office.png" alt="MS Office Suite" class="skill-icon">
+        <h3>MS Office Suite</h3>
+        <p>PowerPoint, Word, Outlook</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>MS Office Suite</h3>
+        <p><b>PowerPoint:</b> Created executive summaries and project presentations for the Revenue–Operations Dashboard and Energy Forecasting results.</p>
+        <br>
+        <p><b>Word:</b> Documented methodologies and outcomes for the IoT Enabled Hospital Beds and Energy Forecasting projects.</p>
+        <br>
+        <p><b>Outlook:</b> Used to coordinate project updates and stakeholder communication during internship deliverables.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Data & Analytics Skills -->
+  <section class="skills-section">
+    <h2 class="skills-heading">Data & Analytics Skills</h2>
+    <span class="heading-line" aria-hidden="true"></span>
+
+    <div class="skills-row">
+      <article class="skill-card">
+        <img src="images/Data Cleaning.png" alt="Data Cleaning" class="skill-icon">
+        <h3>Data Cleaning</h3>
+        <p>Missing value handling, outlier treatment, normalization</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>Data Cleaning</h3>
+        <p>Performed in iConsult Event Analysis and Sales–Profit Dashboard to remove duplicates, 
+          handle missing values, and prepare datasets for modeling and visualization.</p>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <img src="images/Data Extraction.png" alt="Data Extraction" class="skill-icon">
+        <h3>Data Extraction</h3>
+        <p>APIs, SQL queries, CSV/JSON imports, connectors</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>Data Extraction</h3>
+        <p>Used in Wealo Studio to pull user engagement data from MySQL logs and convert them into structured analytics datasets.</p>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <img src="images/Data Manipulation.png" alt="Data Manipulation" class="skill-icon">
+        <h3>Data Manipulation</h3>
+        <p>Merging, reshaping, filtering, aggregation</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>Data Manipulation</h3>
+        <p>Applied in Energy Forecasting and Revenue–Operations Dashboard using dplyr and Power Query for reshaping and transforming raw data.</p>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <img src="images/Data Modeling.png" alt="Data Modeling" class="skill-icon">
+        <h3>Data Modeling</h3>
+        <p>Star/Snowflake schema, relationship mapping, normalization</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>Data Modeling</h3>
+        <p>Built star and snowflake schema models in Revenue–Operations Dashboard and defined relationships in Power BI to ensure accurate reporting.</p>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <img src="images/Data Visualization.png" alt="Data Visualization" class="skill-icon">
+        <h3>Data Visualization</h3>
+        <p>Tableau, Power BI, Matplotlib, ggplot2</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>Data Visualization</h3>
+        <p>Developed Sales–Profit Dashboard (Tableau) and Revenue–Operations Dashboard (Power BI) for KPI insights using charts, heatmaps, and trend lines.</p>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <img src="images/Statistical Analysis.png" alt="Statistical Analysis" class="skill-icon">
+        <h3>Statistical Analysis</h3>
+        <p>Regression, correlation, hypothesis testing</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>Statistical Analysis</h3>
+        <p>Performed regression and variance analysis in Energy Forecasting to improve peak-demand prediction accuracy by 23%.</p>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <img src="images/Forecasting.png" alt="Forecasting" class="skill-icon">
+        <h3>Forecasting</h3>
+        <p>Time series modeling, trend analysis, predictive analytics</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>Forecasting</h3>
+        <p>Used regression and time-series modeling in Energy Forecasting to predict energy demand and reduce variance by 18%.</p>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <img src="images/AB Testing.png" alt="A/B Testing" class="skill-icon">
+        <h3>A/B Testing</h3>
+        <p>Experimental design, test evaluation, conversion analysis</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>A/B Testing</h3>
+        <p>Executed at Wealo Studio to evaluate new e-commerce features, optimizing conversions and improving user engagement by identifying impactful UI elements.</p>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <img src="images/KPI Benchmarking.png" alt="KPI Benchmarking" class="skill-icon">
+        <h3>KPI Benchmarking</h3>
+        <p>Target setting, metric analysis, performance evaluation</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>KPI Benchmarking</h3>
+        <p>Created performance KPIs in Revenue–Operations Dashboard (utilization, target variance) and Sales–Profit Dashboard (profit margins by region).</p>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <img src="images/Business Insigts.png" alt="Business Insigts" class="skill-icon">
+        <h3>Business Insigts</h3>
+        <p>Trend interpretation, stakeholder reporting, actionable metrics</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>Business Insigts</h3>
+        <p>Generated actionable insights at iConsult by identifying a 16.4% drop in evening event conversions, 
+          guiding scheduling strategies that improved attendance by 10%.</p>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <img src="images/Storytelling.png" alt="Storytelling with Data" class="skill-icon">
+        <h3>Storytelling with Data</h3>
+        <p>Insight communication, narrative design, dashboard annotation</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>Storytelling with Data</h3>
+        <p>Presented insights across internships using Power BI and Tableau dashboards to communicate performance metrics effectively to stakeholders.</p>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <img src="images/ETL.png" alt="ETL" class="skill-icon">
+        <h3>ETL Process</h3>
+        <p>Extract, Transform, Load pipelines for data integration</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>ETL Process</h3>
+        <p>Implemented in Revenue–Operations Dashboard using Power Query and DAX-based calculations to automate data flow from multiple sources into a star schema.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Design & Development -->
+  <section class="skills-section">
+    <h2 class="skills-heading">Design & Developemnt</h2>
+    <span class="heading-line" aria-hidden="true"></span>
+
+    <div class="skills-row">
+      <article class="skill-card">
+        <img src="images/UI.png" alt="UI/UX Design" class="skill-icon">
+        <h3>UI/UX Design</h3>
+        <p>Wireframing, accessibility, color theory, layout consistency</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>UI/UX Design</h3>
+        <p>Designed responsive, user-centric interfaces in the Netflix-themed portfolio website, emphasizing smooth navigation, readability, and 
+          visual balance through structured layouts and red-accented contrast on dark backgrounds.</p>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <img src="images/Front End Development.png" alt="Front-End Development" class="skill-icon">
+        <h3>Front-End Development</h3>
+        <p>Responsive web design, interactivity, modular coding</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>Front-End Development</h3>
+        <p>Implemented the Netflix-themed portfolio and Dining Management System interfaces using HTML, CSS, and JavaScript, 
+          featuring animations, hover transitions, and message-box pointers for enhanced interactivity.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Soft Skills & Strengths -->
+  <section class="skills-section">
+    <h2 class="skills-heading">Soft Skills & Strengths</h2>
+    <span class="heading-line" aria-hidden="true"></span>
+
+    <div class="skills-row">
+      <article class="skill-card">
+        <img src="images/Project Management.png" alt="Project Management" class="skill-icon">
+        <h3>Project Management</h3>
+        <p>Planning, scheduling, scope tracking, risk mitigation</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>Project Management</h3>
+        <p>Coordinated project timelines and deliverables during the Syracuse University Internship and 
+          Dining Management System development, ensuring smooth progress through structured task planning and regular updates.</p>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <img src="images/Client Communication.png" alt="Client Communication" class="skill-icon">
+        <h3>Client Communication</h3>
+        <p>Stakeholder alignment, reporting, requirement gathering</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>Client Communication</h3>
+        <p>Strengthened client relationships at Qualisurge Surgicals through follow-ups and feedback sessions, 
+          achieving a 25% increase in leads and a 20% rise in engagement.</p>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <img src="images/Problem Solving.png" alt="Problem Solving" class="skill-icon">
+        <h3>Problem Solving</h3>
+        <p>Root-cause analysis, critical thinking, decision-making</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>Problem Solving</h3>
+        <p>Resolved functional and data challenges in the Dining Management System and Wealo Studio Analytics, 
+          optimizing workflows and improving system reliability through efficient debugging and process refinement.</p>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <img src="images/Team Collaboration.png" alt="Team Collaboration" class="skill-icon">
+        <h3>Team Collaboration</h3>
+        <p>Cross-functional teamwork, agile sprints, documentation</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>Team Collaboration</h3>
+        <p>Collaborated with cross-functional teams at Wealo Studio to align analytics outcomes with marketing 
+          and development goals, fostering shared accountability and streamlined execution.</p>
+        </div>
+      </article>
+
+      <article class="skill-card">
+        <img src="images/AI for Learning.png" alt="AI for Learning" class="skill-icon">
+        <h3>AI for Learning</h3>
+        <p>Using generative AI tools for ideation, summarization, automation</p>
+        <!-- SECOND CARD (appears when first is clicked) -->
+        <div class="skill-details" aria-hidden="true">
+        <h3>AI for Learning</h3>
+        <p>Leveraged generative AI tools to enhance code efficiency and automate repetitive analysis tasks 
+          across projects, accelerating iteration and improving output consistency.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+  <script src="Skills_Page.js" defer></script>
+</body>
+</html>
