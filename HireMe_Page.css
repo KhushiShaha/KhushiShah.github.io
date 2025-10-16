@@ -299,3 +299,54 @@ body{
 .download-btn:hover {
   background: #e50914;
 }
+
+/* Keep inputs/textarea looking identical at all times */
+.contact-box .form-group input,
+.contact-box .form-group textarea {
+  background: rgba(255,255,255,0.05) !important; /* your dark look */
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 8px;
+  outline: none !important;
+  box-shadow: none !important;
+  caret-color: #fff;
+  transition: none; /* prevent animated flashes */
+}
+
+/* No visual change on focus/active/valid/invalid/hover */
+.contact-box .form-group input:focus,
+.contact-box .form-group input:active,
+.contact-box .form-group input:hover,
+.contact-box .form-group input:valid,
+.contact-box .form-group input:invalid,
+.contact-box .form-group textarea:focus,
+.contact-box .form-group textarea:active,
+.contact-box .form-group textarea:hover,
+.contact-box .form-group textarea:valid,
+.contact-box .form-group textarea:invalid {
+  background: rgba(255,255,255,0.05) !important;
+  color: #fff !important;
+  border-color: rgba(255,255,255,0.3) !important;
+  box-shadow: none !important;
+}
+
+/* Keep placeholder consistent */
+.contact-box .form-group input::placeholder,
+.contact-box .form-group textarea::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+/* Kill Chrome/Edge/Safari autofill yellow */
+.contact-box .form-group input:-webkit-autofill,
+.contact-box .form-group textarea:-webkit-autofill {
+  -webkit-text-fill-color: #fff !important;
+  transition: background-color 99999s ease-in-out 0s !important; /* hide repaint */
+  box-shadow: 0 0 0px 1000px rgba(255,255,255,0.05) inset !important;
+}
+
+/* Firefox autofill */
+.contact-box .form-group input:-moz-autofill,
+.contact-box .form-group textarea:-moz-autofill {
+  background-color: rgba(255,255,255,0.05) !important;
+  color: #fff !important;
+}
